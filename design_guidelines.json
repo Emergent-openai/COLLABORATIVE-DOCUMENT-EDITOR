@@ -1,0 +1,130 @@
+{
+  "project_name": "Collaborative Editor Redesign",
+  "design_philosophy": {
+    "identity": "E1 - The Anti-AI Designer",
+    "core_principles": [
+      "Fusion over Imitation: Google Docs structure x Swiss Grid precision",
+      "Content is King: The page is the stage, the UI is the orchestra pit",
+      "Tactile Utility: Tools should feel like physical switches, not flat text",
+      "Density with Breath: High-density toolbars, high-breathability canvas"
+    ],
+    "mood": "Professional, Crisp, Familiar yet Elevated"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Work Sans, sans-serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-2xl font-medium tracking-tight",
+      "h2": "text-xl font-medium tracking-tight",
+      "body": "text-[15px] leading-relaxed",
+      "ui_label": "text-[13px] font-medium text-slate-600",
+      "toolbar_text": "text-[14px] font-medium text-slate-700"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#F0F2F5",
+      "surface": "#FFFFFF",
+      "primary": "#1A73E8",
+      "primary_hover": "#1557B0",
+      "text_primary": "#1F2937",
+      "text_secondary": "#4B5563",
+      "border": "#E5E7EB",
+      "selection": "#C2E7FF"
+    },
+    "collaboration": [
+      { "name": "Rose", "color": "#D01884", "bg": "#FCE7F3" },
+      { "name": "Teal", "color": "#00796B", "bg": "#E0F2F1" },
+      { "name": "Orange", "color": "#E65100", "bg": "#FFF3E0" },
+      { "name": "Purple", "color": "#7B1FA2", "bg": "#F3E5F5" },
+      { "name": "Blue", "color": "#1565C0", "bg": "#E3F2FD" }
+    ]
+  },
+  "layout": {
+    "structure": "Fixed Header + Scrollable Canvas + Floating/Fixed Sidebars",
+    "header_height": "auto",
+    "canvas_width": "816px",
+    "z_index": {
+      "header": 50,
+      "panels": 40,
+      "canvas": 10,
+      "popovers": 60
+    }
+  },
+  "components": {
+    "EditorHeader": {
+      "path": "/app/frontend/src/components/editor/EditorHeader.jsx",
+      "structure": {
+        "top_row": "Logo(Home) | Title(Editable) | Menus(File,Edit,View) | Spacer | LastEditStatus | CommentHistoryBtn | MeetBtn | ShareBtn | UserAvatar",
+        "bottom_row": "Toolbar (Pill-shaped groups)"
+      },
+      "styling": {
+        "container": "bg-white border-b border-slate-200 shadow-[0_2px_4px_rgba(0,0,0,0.02)] px-4 py-2 gap-2",
+        "title_input": "text-lg font-medium text-slate-900 hover:border hover:border-slate-300 rounded px-1.5 -ml-1.5 transition-colors",
+        "menu_item": "text-sm text-slate-600 hover:bg-slate-100 px-2 py-1 rounded cursor-pointer",
+        "toolbar_container": "flex items-center gap-1.5 bg-[#EDF2FA] rounded-full px-2 py-1.5 mt-2 overflow-x-auto no-scrollbar",
+        "toolbar_group": "flex items-center gap-0.5 border-r border-slate-300/50 pr-2 mr-2 last:border-0 last:mr-0 last:pr-0",
+        "toolbar_button": "p-1.5 rounded hover:bg-[#D3E3FD] text-slate-700 data-[active=true]:bg-[#C2E7FF] data-[active=true]:text-[#001D35] transition-colors"
+      }
+    },
+    "EditorWorkspace": {
+      "path": "/app/frontend/src/components/editor/EditorWorkspace.jsx",
+      "styling": {
+        "wrapper": "flex flex-col h-screen bg-[#F9FBFD] overflow-hidden",
+        "main_area": "flex-1 relative overflow-hidden flex flex-row",
+        "scroller": "flex-1 overflow-y-auto h-full p-8 no-scrollbar scroll-smooth",
+        "canvas_container": "relative mx-auto min-h-[1056px] w-[816px] bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/5 rounded-sm px-12 py-12 transition-all duration-300 ease-in-out"
+      }
+    },
+    "CommentRail": {
+      "path": "/app/frontend/src/components/editor/CommentRail.jsx",
+      "style_variant": "DocsSidebar",
+      "styling": {
+        "container": "w-[300px] border-l border-slate-200 bg-white h-full flex flex-col shadow-[-4px_0_12px_rgba(0,0,0,0.02)]",
+        "header": "h-12 border-b border-slate-100 flex items-center justify-between px-4",
+        "card": "bg-white border border-slate-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow mb-3 cursor-pointer ring-offset-2 focus-within:ring-2 ring-blue-500/20",
+        "active_card": "border-blue-500 shadow-[0_0_0_1px_rgba(59,130,246,1)] bg-blue-50/10",
+        "timestamp": "text-[11px] text-slate-400"
+      }
+    },
+    "PanelDrawer": {
+      "path": "/app/frontend/src/components/editor/PanelDrawer.jsx",
+      "styling": {
+        "overlay": "fixed inset-0 bg-transparent pointer-events-none z-40",
+        "drawer": "fixed inset-y-0 z-50 w-80 bg-white shadow-2xl p-0 flex flex-col transition-transform duration-300 pointer-events-auto"
+      },
+      "behavior": "Allow interaction with canvas even when panel is open (remove backdrop pointer-events)"
+    }
+  },
+  "assets": {
+    "icons": "lucide-react",
+    "images": [
+      {
+        "category": "avatars",
+        "urls": [
+          "https://images.pexels.com/photos/4565706/pexels-photo-4565706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          "https://images.pexels.com/photos/3228830/pexels-photo-3228830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        ]
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. HEADER REWRITE: Completely replace EditorHeader.jsx structure. Use two distinct rows: (1) Meta/Menu, (2) Toolbar. Use 'flex' and 'gap' utilities heavily.",
+    "2. TOOLBAR ICONS: Use Lucide icons. Group them logically: [Undo/Redo] | [Zoom] | [Text Style] | [Font Family/Size] | [Bold/Italic/Underline/Color] | [Link/Image/Comment] | [Align/List].",
+    "3. CANVAS: Ensure the editor canvas looks like a piece of paper (white, shadow, centered, fixed width) on a gray background.",
+    "4. SIDEBARS: Implement a 'Right Rail' for comments. Modify 'PanelDrawer' to allow interaction with the canvas (remove backdrop or make it non-blocking). Ideally, push the canvas or overlay without blocking.",
+    "5. TYPOGRAPHY: Switch headings to Work Sans (cleaner, sharper) and body to Inter.",
+    "6. PUBLISH VIEW: Ensure the published view also inherits some of this cleanliness but stays read-only.",
+    "7. DATA-TESTID: Preserve all data-testid attributes and add new ones for new toolbar buttons."
+  ],
+  "universal_guidelines": [
+    "Do not use generic gradients.",
+    "Use 'backdrop-blur' for floating panels (if any).",
+    "Ensure all buttons have hover/active states.",
+    "Use 'sonner' for toasts.",
+    "Respect the 'E1' persona: fusion of Swiss Grid precision and Google Docs utility."
+  ]
+}
